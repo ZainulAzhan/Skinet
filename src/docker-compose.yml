@@ -1,0 +1,9 @@
+services:
+  skinetdb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: API/Dockerfile
