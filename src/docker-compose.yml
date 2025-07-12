@@ -2,8 +2,15 @@ services:
   skinetdb:
     image: mcr.microsoft.com/mssql/server:2022-latest
 
+  redis:
+    image: redis
+
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
       context: .
       dockerfile: API/Dockerfile
+
+volumes:
+  sql-data:
+  redis-data:
